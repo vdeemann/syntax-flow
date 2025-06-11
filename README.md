@@ -1,3 +1,7 @@
+![Screenshot 2025-06-11 at 15-26-24 JSFiddle wu9fey6n](https://github.com/user-attachments/assets/4bea99db-998b-4cd0-bf18-ea975b817fe7)
+
+![Screenshot 2025-06-11 at 15-26-55 JSFiddle Dark Mode Code Example](https://github.com/user-attachments/assets/1b5425dd-7889-4083-bd9d-b7aa02601792)
+
 ## **Comprehensive Summary: Enhancing Code Readability for Speed and Comprehension**
 
 ### **1. The Cognitive Science of Reading Code**
