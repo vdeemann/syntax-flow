@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle wu9fey6n</title>
+
+  <style>
+    /* CSS Panel for JSFiddle */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Source+Sans+Pro:wght@700&family=Merriweather:wght@700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+body {
+  background: #f7f5f2;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  padding: 2em;
+}
+.code-block {
+  background: #ece8e2;
+  border-radius: 12px;
+  padding: 2em 2.5em;
+  font-size: 1.15rem;
+  color: #23272e;
+  line-height: 1.9;
+  min-width: 420px;
+  width: fit-content;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  letter-spacing: 0.01em;
+  font-family: 'Fira Mono', 'JetBrains Mono', monospace;
+}
+.code-block .com {
+  color: #b0b0b0;
+  font-style: italic;
+  font-size: 0.97em;
+  font-family: 'JetBrains Mono', monospace;
+}
+.import-block, .function-block {
+  margin-bottom: 1em;
+  padding: 0.7em 1.2em;
+  border-radius: 8px;
+}
+.import-block {
+  background: rgba(59, 130, 246, 0.03);
+  border-left: 3px solid #b3cdf6;
+}
+.function-block {
+  background: rgba(220, 38, 38, 0.02);
+  border-left: 3px solid #f6b3b3;
+}
+.kw, .kw-bionic {
+  color: #1976d2;
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+}
+.kw-bionic {
+  font-weight: bold;
+  background: #e3eafc;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.fn, .fn-bionic {
+  color: #d72660;
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
+}
+.fn-bionic {
+  background: #fce3e9;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.var, .var-bionic {
+  color: #222;
+  font-family: 'Fira Mono', monospace;
+}
+.var-bionic {
+  font-weight: 700;
+  background: #e3fcec;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+.str {
+  color: #399f4a;
+  font-family: 'JetBrains Mono', monospace;
+  background: #f4fbf4;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+  </style>
+
+  
+</head>
+<body>
+  <!-- HTML Panel for JSFiddle -->
+<div class="code-block">
+  <span class="com">// Multi-Font, Bionic Highlighted, Readable Code Example</span><br><br>
+  <div class="import-block">
+    <span class="kw-bionic">imp</span><span class="kw">ort</span> <span class="var-bionic">Re</span><span class="var">act</span>, { <span class="var-bionic">use</span><span class="var">State</span>, <span class="var-bionic">use</span><span class="var">Effect</span>, <span class="var-bionic">use</span><span class="var">Callback</span> } <span class="kw-bionic">fr</span><span class="kw">om</span> <span class="str">'react'</span>;<br>
+    <span class="kw-bionic">imp</span><span class="kw">ort</span> <span class="var-bionic">io</span> <span class="kw-bionic">fr</span><span class="kw">om</span> <span class="str">'socket.io-client'</span>;<br>
+    <span class="kw-bionic">imp</span><span class="kw">ort</span> { <span class="var-bionic">use</span><span class="var">Selector</span>, <span class="var-bionic">use</span><span class="var">Dispatch</span> } <span class="kw-bionic">fr</span><span class="kw">om</span> <span class="str">'react-redux'</span>;<br>
+    <span class="kw-bionic">imp</span><span class="kw">ort</span> { <span class="fn-bionic">add</span><span class="fn">Message</span>, <span class="fn-bionic">set</span><span class="fn">Users</span>, <span class="fn-bionic">set</span><span class="fn">Typing</span> } <span class="kw-bionic">fr</span><span class="kw">om</span> <span class="str">'./chatSlice'</span>;<br>
+  </div>
+  <div class="function-block">
+    <span class="kw-bionic">con</span><span class="kw">st</span> <span class="fn-bionic">Chat</span> = () =&gt; {<br>
+    &nbsp;&nbsp;<span class="kw-bionic">con</span><span class="kw">st</span> [<span class="var-bionic">socket</span>, <span class="var-bionic">set</span><span class="var">Socket</span>] = <span class="var-bionic">use</span><span class="var">State</span>(<span class="kw">null</span>);<br>
+    &nbsp;&nbsp;<span class="kw-bionic">con</span><span class="kw">st</span> [<span class="var-bionic">message</span>, <span class="var-bionic">set</span><span class="var">Message</span>] = <span class="var-bionic">use</span><span class="var">State</span>(<span class="str">''</span>);<br>
+    &nbsp;&nbsp;<span class="kw-bionic">con</span><span class="kw">st</span> [<span class="var-bionic">is</span><span class="var">Typing</span>, <span class="var-bionic">set</span><span class="var">IsTyping</span>] = <span class="var-bionic">use</span><span class="var">State</span>(<span class="kw">false</span>);<br>
+    &nbsp;&nbsp;<span class="kw-bionic">con</span><span class="kw">st</span> { <span class="var-bionic">messages</span>, <span class="var-bionic">users</span>, <span class="var-bionic">typing</span><span class="var">Users</span> } = <span class="var-bionic">use</span><span class="var">Selector</span>(state =&gt; state.chat);<br>
+    &nbsp;&nbsp;<span class="kw-bionic">con</span><span class="kw">st</span> <span class="var-bionic">dispatch</span> = <span class="var-bionic">use</span><span class="var">Dispatch</span>();<br><br>
+    &nbsp;&nbsp;<span class="var-bionic">use</span><span class="var">Effect</span>(() =&gt; {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw-bionic">con</span><span class="kw">st</span> <span class="var-bionic">new</span><span class="var">Socket</span> = <span class="var-bionic">io</span>('http://localhost:4000');<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="var-bionic">set</span><span class="var">Socket</span>(newSocket);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;newSocket.on(<span class="str">'message'</span>, (msg) =&gt; dispatch(<span class="fn-bionic">add</span><span class="fn">Message</span>(msg)));<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;newSocket.on(<span class="str">'users'</span>, (users) =&gt; dispatch(<span class="fn-bionic">set</span><span class="fn">Users</span>(users)));<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;newSocket.on(<span class="str">'typing'</span>, (data) =&gt; dispatch(<span class="fn-bionic">set</span><span class="fn">Typing</span>(data)));<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="kw-bionic">ret</span><span class="kw">urn</span> () =&gt; newSocket.close();<br>
+    &nbsp;&nbsp;}, [dispatch]);<br>
+    };
+  </div>
+</div>
+
+
+  <script>
+    
+  </script>
+</body>
+</html>
